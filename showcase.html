@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<title>About</title>
+
+	<meta charset="utf-8">
+	<meta name="description" content="Portfolio">
+	<meta name="author" content="Matus Ledenyi">
+	<meta name="keywords" content="HTML5, CSS, JavaScript">
+	<!--
+		<meta http-equiv="refresh" content="1">
+	-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="stylesheet" type="text/css" href="myStyle.css">
+	<script src="myJavaScript.js"></script>
+	<script src="towerOfHanoiGame.js"></script>
+	<!-- 
+	<script type="text/javascript" src="http://	ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+  	<script type="text/javascript" src="jquery.sticky.js"></script>
+	   	<script>
+	   	  $(window).load(function(){
+	        $(".left").sticky({ topSpacing: 0 });
+	      });
+	  	</script>
+	 -->
+</head>
+<body>
+	
+<header>
+	<h1 id = "header"><a class="nav" href="about.html">&#10096;matus ledenyi&#10097;</a></h1>	
+
+	<div id = "mainNav">
+		<script>
+			document.getElementById('mainNav').innerHTML = makeLoadNewPageNav(['About','Showcase','Contact'], 'main', 'nav');
+		</script>
+	</div>
+</header>
+
+<section>
+	<div id = "leftNav">
+		<script>
+			document.getElementById('leftNav').innerHTML = makeHideContentNav(['this Page','Tower of Hanoi'], 'left', 'nav');
+		</script>
+	</div>
+
+	<article id = "this page" class = "hideMe">
+		<h2>this Page</h2>
+			<p>
+				<a class = "dl" href="dl/thisPage.zip" download="thisPage">html, css &amp; js code</a>
+			</p>
+			<p>
+				<ul>
+					<li>
+						Easily editable &amp; reusable code - main and left navigation bars are created by JavaScript functions (see myJavaScript.js), structured CSS
+					</li>
+					<li>
+						Responsive design - scales with screen size
+					</li>
+					<li>
+						WebDesign theme - html tags &amp; css selectors decorations
+					</li>
+					<li>
+						Prototype inheritance - used in 'enwrapInHTMLTag' String method (see myJavaScript.js)
+					</li>
+				</ul>
+			</p>
+	</article>
+
+	<article id = "tower of hanoi" class = "hideMe">
+		<h2>Tower of Hanoi Game</h2>
+			<h3>Game Interface:</h3>
+
+			<div id = "game">
+				<form id = "start">
+						 <label id = "height">Choose tower height (1-8): </label>
+						 <input id = "userHeightInput" type="number" name="height" min="1" max="8" value = "1">
+						 <button type = "button" onclick = "towerOfHanoiGame.start()">START!</button>
+						 <button type = "button" onclick = "towerOfHanoiGame.hanoi.showSolutionPath_memoized()">Show solution</button>
+
+				</form>
+
+				<table id = "display_game">
+					<tr>
+						<th>Pole One</th>
+						<th>Pole Two</th>
+						<th>Pole Three</th>
+					</tr>
+					<tr>
+						<td><span id = "hanoiOutput_pole1" class = "output"></span></td>
+						<td><span id = "hanoiOutput_pole2" class = "output"></span></td>
+						<td><span id = "hanoiOutput_pole3" class = "output"></span></td>
+					</tr>
+					<tr>
+						<td>
+							<button class = "control" onclick = "towerOfHanoiGame.hanoi.moveBlock(0,1)">~> 2</button>
+							<button class = "control" onclick = "towerOfHanoiGame.hanoi.moveBlock(0,2)">~>> 3</button>
+						</td>
+						<td>
+							<button class = "control" onclick = "towerOfHanoiGame.hanoi.moveBlock(1,0)">1 <~</button>
+							<button class = "control" onclick = "towerOfHanoiGame.hanoi.moveBlock(1,2)">~> 3</button>
+						</td>
+						<td>
+							<button class = "control" onclick = "towerOfHanoiGame.hanoi.moveBlock(2,0)">1 <<~</button>
+							<button class = "control" onclick = "towerOfHanoiGame.hanoi.moveBlock(2,1)">2 <~</button>
+						</td>
+					</tr>
+				</table>	<p id = "solutionPathOutput"></p>
+			</div>
+
+			<h3>Download the module</h3>
+				<p>
+					<a class = "dl" href="dl/towerOfHanoiGame.zip" download="hanoi">hanoi.js</a>
+				</p>
+			<h3>Concepts used:</h3>
+			<ul>
+				<li>
+					<h4>CLOSURES</h4>
+						<p>
+							~ creating private states and functions 
+						(e.g.: Hanoi status 'height' accessible through 'get_height' method, 
+						</p>
+						<p>
+							~ not polluting global variable namespace (the whole 'towerOfHanoiGame.js' module)
+						</p>
+				</li>
+				<li>
+					<h4>TYPE AUGUMENTATION</h4>
+						<p>
+							~ New Number,Array  and Function methods
+						</p>
+				</li>
+				<li>
+					<h4>CASCADING</h4>
+						<p>
+							~ Hanoi method 'moveBlock' returns the Hanoi after the block movement enabling
+							expressions as: Hanoi.moveBlock(0,2).moveBlock(0,1)
+						</p>
+				</li>
+				<li>
+					<h4>LOGIC OPERATORS</h4>
+						<p>
+							~ the behaviour of '&amp;&amp;' and '||' and truthiness/falsiness of objects
+						</p>
+				</li>
+				<li>
+					<h4>RECURSION</h4>
+						<p>
+							~ hanoi solver 'showSolutionPath'
+						</p>
+				</li>
+				<li>
+					<h4>MEMOIZATION</h4>
+						<p>
+							~ memoized Hanoi solver 'showSolutionPath_memoized'
+						</p>
+				</li>
+				<li>
+					<h4>LAMBDA/ARROW FUNCTIONS</h4>
+						<p>
+							~ in 'mutatePath' funtion
+						</p>
+				</li>
+				<li>
+					<h4>PERFORMANCE TESTING</h4>
+						<p>
+							~ 'performance' and 'meanPerformance' Function type augumentations (can be used to test performance of 'getSolutionPath' functions)
+							Example:
+									<br />
+							<code>
+								h = towerOfHanoiGame.makeHanoi(20);
+							</code> <br />
+							<code>
+								h.showSolutionPath.performance(h,([]));
+							</code> <br />
+							~> 632.8700000000099<br />
+							<code>
+								h.showSolutionPath_memoized.performance(h,([]));
+
+							</code> <br />
+							~> 1679.3649999999907<br />
+							<code>
+								h.showSolutionPath_memoized.performance(h,([]));
+							</code> <br />
+							~>  0.005000000004656613<br />
+						</p>
+				</li>
+			</ul>
+	</article>
+</section>
+
+<footer>
+	<h1 id = "footer"><a class = "nav" href="#header">&#10096;/portfolio&#10097;</a></h1>
+</footer>
+
+<script type="text/javascript">
+	showContent('this page','hideMe');
+</script>
+
+</body>
+</html>
