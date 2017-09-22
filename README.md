@@ -20,13 +20,25 @@
 	- in 'mutatePath' funtion
 - PERFORMANCE TESTING 
 	- 'performance' and 'meanPerformance' Function type augumentations (can be used to tset performance of 'getSolutionPath' functions)
+	
 	Example:
-		h = makeHanoi(20);
-		h.getSolutionPath.meanPerformance([])(1); // ~> 602.8000000000002
-		h.getSolutionPath_memoized.meanPerformance([])(1) // ~> 1480.1949999999924
+	
+	h = makeHanoi(20);
+	
+	h.getSolutionPath.meanPerformance([])(1);
+	
+		602.8000000000002
+	
+	h.getSolutionPath_memoized.meanPerformance([])(1)
+		
+		1480.1949999999924
+	
+	First iteration of memoized solver is slower, but solution being stored in private state makes the difference in consecutive calls
+	
+	h.getSolutionPath_memoized.meanPerformance([])(1)
+	
+		0.010000000009313226
 
-		First iteration of memoized solver is slower, but solution being stored in private state makes the difference in consecutive calls
-		h.getSolutionPath_memoized.meanPerformance([])(1) // ~>  0.010000000009313226
-
-		Memoization is not useful in this particular case because thew solution needs to be computed only once for each Hanoi,
+	
+	Memoization is not useful in this particular case because thew solution needs to be computed only once for each Hanoi,
 	 		it is only meant to demosntrate the principle of memoization
