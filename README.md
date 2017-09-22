@@ -4,10 +4,12 @@
 
 # concepts used
 - CLOSURES 
-	~ creating private states and functions (e.g.: 'path' in 'getSolutionPath')
-	~ not polluting global variable namespace (the whole 'towerOfHanoiGame.js' module)
-- TYPE AUGUMENTATION ~ New Number & Array methods in Pre-requsites section of code
-- CASCADING ~ Hanoi method 'moveBlock' returns the Hanoi after the block movement enabling expressions as: Hanoi.moveBlock(0,2).moveBlock(0,1).moveBlock(2,1).moveBlock(0,2).moveBlock(1,0).moveBlock(1,2).moveBlock(0,2)
+	- creating private states and functions (e.g.: 'path' in 'getSolutionPath')
+	- not polluting global variable namespace (the whole 'towerOfHanoiGame.js' module)
+- TYPE AUGUMENTATION 
+	- New Number & Array methods in Pre-requsites section of code
+- CASCADING 
+	~ Hanoi method 'moveBlock' returns the Hanoi after the block movement enabling expressions as: Hanoi.moveBlock(0,2).moveBlock(0,1).moveBlock(2,1).moveBlock(0,2).moveBlock(1,0).moveBlock(1,2).moveBlock(0,2)
 - LOGIC OPERATORS ~ the behaviour of '&&' and '||' and truthyness/falsiss of objects
 - RECURSION ~ hanoi solver 'getSolutionPath'
 - MEMOIZATION ~ memoized Hanoi solver 'getSolutionPath_memoized'
